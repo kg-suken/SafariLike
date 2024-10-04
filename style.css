@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 5% 20%;  /* 上に10%、左右に20%の空白を指定 */
+    box-sizing: border-box;
+}
+  
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+  
+#bookmark-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    width: 100%;  /* グリッドの幅を調整 */
+}
+
+.bookmark {
+    text-align: center;
+    background-color: transparent;  /* 白い枠を取り除く */
+    padding: 0;  /* パディングをリセット */
+    border-radius: 10px;  /* 角を丸める */
+    width: 100px;  /* 各ブックマークの横幅を固定 */
+    transition: transform 0.2s;
+}
+
+.bookmark:hover {
+    transform: scale(1.05);
+}
+
+.bookmark a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    margin-top: 10px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;  /* 2行まで表示 */
+    -webkit-box-orient: vertical;
+    max-width: 100%;  /* テキストが横に飛び出さないように制限 */
+}
+
+.bookmark img {
+    width: 64px;  /* 正方形にする */
+    height: 64px;
+    object-fit: cover;  /* 画像を正方形に調整 */
+    margin-bottom: 10px;
+    background-color: white;  /* 白い背景を追加 */
+    border-radius: 10px;  /* 角を丸める */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);  /* 強めのシャドウを追加 */
+    padding: 5px;  /* シャドウがファビコンの周りに適切に配置されるように調整 */
+    display: inline-block;  /* 画像部分のレイアウトを修正 */
+    position: relative;  /* シャドウの位置を調整するために必要 */
+}
+
+.bookmark img::after {
+    content: "";
+    display: block;
+    height: 0;  /* 上にシャドウを表示させるためのスペースを確保 */
+}
